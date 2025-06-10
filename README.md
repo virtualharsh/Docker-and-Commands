@@ -1,4 +1,4 @@
-# `DOCKER`
+# DOCKER
 
 Download and install docker from [Docker](https://www.docker.com)
 
@@ -28,7 +28,7 @@ It eliminates `"It works on my machine problem"`
 
 ---
 
-# `Docker Commands`
+# Docker Commands
 
 ## To `pull` an image from hub.docker.com
 ```bash
@@ -37,6 +37,17 @@ docker pull IMAGE_NAME
 Example:
 ```bash
 docker pull hello-world
+```
+
+---
+
+## To `pull` an image from hub.docker.com with version
+```bash
+docker pull IMAGE_NAME:version
+```
+Example:
+```bash
+docker pull mysql:8.0
 ```
 
 ---
@@ -54,6 +65,11 @@ Example
 ```
 docker run hello-world
 ```
+Example: Detached mode
+```
+docker run -d hello-world
+```
+`Note`:  if you need to monitor the output of a container or interact with it, attached mode is more appropriate. `The attached mode actively occupy the terminal`.
 
 ---
 
@@ -106,6 +122,10 @@ Example: starting a container with ID
 ```
 docker start 6cb01cd7814f (Initial 6-7 bits of long ID)
 ```
+Example: starting a container in interative mode
+```
+docker start -i 6cb01cd7814f (Initial 6-7 bits of long ID)
+```
 ---
 
 ## `STOP running containers`
@@ -127,7 +147,31 @@ docker stop 6cb01cd7814f (Initial 6-7 bits of long ID)
 ```
 docker rm container_name
 ```
-### removing images
+## removing images
 ```
 docker rmi image_name
 ```
+---
+
+## PORT BINDING
+
+`Note`: PORT in containers differ from the host machine. To map the container ports with host machine we can use following commands
+
+```
+docker run -p HOST_PORT:CONTAINER_PORT IMAGE NAME
+```
+Example:
+```
+docker run -p5173:5174 reactENV
+```
+
+## Setting ENV variable
+
+```
+docker run -e VAR_NAME=VAR_VALUE CONTAINER_NAME (or container_id)
+```
+Example:
+```
+docker run -e PORT=5000 reactENV
+```
+
