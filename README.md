@@ -1,9 +1,12 @@
 # DOCKER
 
+![Docker in real life environment](./assets/docker-real-life.png)
+<p align="center">Docker in real life environment</p>
+
 Download and install docker from [Docker](https://www.docker.com)
 
 Verify the download using following command docker version should display in console
-```bash
+```
 docker -v
 ```
 
@@ -31,22 +34,22 @@ It eliminates `"It works on my machine problem"`
 # Docker Commands
 
 ## To `pull` an image from hub.docker.com
-```bash
+```
 docker pull IMAGE_NAME
 ```
 Example:
-```bash
+```
 docker pull hello-world
 ```
 
 ---
 
 ## To `pull` an image from hub.docker.com with version
-```bash
+```
 docker pull IMAGE_NAME:version
 ```
 Example:
-```bash
+```
 docker pull mysql:8.0
 ```
 
@@ -174,4 +177,18 @@ Example:
 ```
 docker run -e PORT=5000 reactENV
 ```
+
+---
+
+
+## Going to bin/bash of a container
+`Note`: you have to start the container before creating the bash
+```
+docker exec -it CONTAINER bin/bash
+```
+Example:
+```
+docker run -e node:latest bin/bash
+```
+---
 
