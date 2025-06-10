@@ -1,1 +1,133 @@
-# DOCKER and it's commands at this place
+# `DOCKER`
+
+Download and install docker from [Docker](https://www.docker.com)
+
+Verify the download using following command docker version should display in console
+```bash
+docker -v
+```
+
+## Docker Image
+It is a blueprint of container, like class and objects where Image acts as a class and containers are objects
+
+## Container
+contains all the applications and resources that are needed for a project.
+
+let's say we're using following modules
+- mongodb v3
+- node v19
+and what not !
+
+Let's say I am using node v19 and my teammate is using node v18. That's where docker kicks in and make the environment consistent, a dockerfile works as a package.json to setup the project environment
+
+It eliminates `"It works on my machine problem"`
+
+- They're portable
+- They're light-weight
+- They're isolated from local environment
+
+---
+
+# `Docker Commands`
+
+## To `pull` an image from hub.docker.com
+```bash
+docker pull IMAGE_NAME
+```
+Example:
+```bash
+docker pull hello-world
+```
+
+---
+
+## To `list` all the images
+```
+docker images
+```
+
+## `Execute` an image 
+```
+docker run IMAGE_NAME
+```
+Example
+```
+docker run hello-world
+```
+
+---
+
+## `Run` a image in `interactive mode`
+```
+docker run -it IMAGE_NAME
+```
+Example: This will start a ubuntu console 
+```
+docker run -it ubuntu
+```
+
+`NOTE`: Docker run is used to create new containers out of the images `Docker start` is used to run existing containers with name or ID.
+
+---
+
+## `Run a image` assigning a name of container
+```
+docker run [-it] --name name IMAGE_NAME
+```
+---
+
+## `Exit/Stop` the container in `interactive mode`
+```
+exit
+```
+---
+
+## `List all containers`
+```
+docker ps -a
+```
+---
+
+## `List all containers` that are `running`
+```
+docker ps
+```
+---
+
+## `Run existing containers`
+```
+docker start ( CONTAINER_NAME || CONTAINER_ID )
+```
+Example: starting a container with name
+```
+docker start quirky_sanderson
+```
+Example: starting a container with ID
+```
+docker start 6cb01cd7814f (Initial 6-7 bits of long ID)
+```
+---
+
+## `STOP running containers`
+```
+docker stop ( CONTAINER_NAME || CONTAINER_ID )
+```
+Example: stopping a container with name
+```
+docker stop quirky_sanderson
+```
+Example: stopping a container with ID
+```
+docker stop 6cb01cd7814f (Initial 6-7 bits of long ID)
+```
+---
+
+## `Removing Images`
+`Note`: Containers with the image must be removed first 
+```
+docker rm container_name
+```
+### removing images
+```
+docker rmi image_name
+```
