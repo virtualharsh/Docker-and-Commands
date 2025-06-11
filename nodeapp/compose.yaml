@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: nodeapp
+    volumes:
+      - .:/nodeapp
+    working_dir: /nodeapp
+    command: nodemon index.js
+    environment:
+      MONGO_DB_USERNAME: harsh
+      MONGO_DB_PASSWORD: harsh
+    ports:
+      - "3000:3000" # if your app runs on port 3000, change if needed

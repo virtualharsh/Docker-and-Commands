@@ -192,3 +192,12 @@ docker run -e node:latest bin/bash
 ```
 ---
 
+## Composing a docker image
+
+`Docker network` is automatically made out of compose.yaml
+
+> docker compose -f compose.yaml up -d
+
+> docker compose -f compose.yaml down
+
+## Volumes - preserving data
